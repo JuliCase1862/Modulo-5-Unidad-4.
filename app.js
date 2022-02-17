@@ -14,6 +14,12 @@ var adminRouter = require('./routes/admin/novedades');
 
 var app = express();
 
+app.use(session({
+  secret: 'PW2022awqyeudj',
+  resave: false,
+  saveUninitialized: true
+}))
+
 secured = async (req, res, next) => {
   try {
     console.log(req.session.id_usuario);
